@@ -19,19 +19,9 @@ namespace HTIM10{
 namespace HI2C1{
 	I2C_HandleTypeDef I2C1Handle;
 	
-	void IO(){
-		__HAL_RCC_GPIOB_CLK_ENABLE();
-		GPIO_InitTypeDef GPIO_InitStruct = {0};
-		GPIO_InitStruct.Pin = GPIO_PIN_8 | GPIO_PIN_9;
-		GPIO_InitStruct.Mode = GPIO_MODE_AF_OD;
-		GPIO_InitStruct.Pull = GPIO_NOPULL;
-		GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-		GPIO_InitStruct.Alternate = GPIO_AF4_I2C1;
-		HAL_GPIO_Init(GPIOB,&GPIO_InitStruct);
-	}
-	
-	void Init(){
-		IO();
+	void Init(GPIO_Port PortSCL,GPIO_Port PortSDA,uint32_t AF){
+		GPIO* SCL = new GPIO(PortSCL,AF_OD,NO,LOW,AF);
+		GPIO* SDA = new GPIO(PortSDA,AF_OD,NO,LOW,AF);
 		__HAL_RCC_I2C1_CLK_ENABLE();
 		I2C1Handle.Instance = I2C1;
 		I2C1Handle.Init.ClockSpeed = 400000;
@@ -43,24 +33,16 @@ namespace HI2C1{
 		I2C1Handle.Init.GeneralCallMode = I2C_GENERALCALL_DISABLE;
 		I2C1Handle.Init.NoStretchMode = I2C_NOSTRETCH_DISABLE;
 		if(HAL_I2C_Init(&I2C1Handle) != HAL_OK) Error_Handler();
+		delete SCL;
+		delete SDA;
 	}
 }
 namespace HUART1{
 	UART_HandleTypeDef UART1Handle;
-	
-	void IO(){
-		__HAL_RCC_GPIOA_CLK_ENABLE();
-		GPIO_InitTypeDef GPIO_InitStruct = {0};
-		GPIO_InitStruct.Pin = GPIO_PIN_6 | GPIO_PIN_7;
-		GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
-		GPIO_InitStruct.Pull = GPIO_NOPULL;
-		GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_VERY_HIGH;
-		GPIO_InitStruct.Alternate = GPIO_AF7_USART1;
-		HAL_GPIO_Init(GPIOB,&GPIO_InitStruct);
-	}
-	
-	void Init(void){
-		IO();
+
+	void Init(GPIO_Port PortTX,GPIO_Port PortRX,uint32_t AF){
+		GPIO* TX = new GPIO(PortTX,AF_PP,NO,LOW,AF);
+		GPIO* RX = new GPIO(PortRX,AF_PP,NO,LOW,AF);
 		__HAL_RCC_USART1_CLK_ENABLE();
 		UART1Handle.Instance = USART1;
 		UART1Handle.Init.BaudRate = 115200;
@@ -71,13 +53,15 @@ namespace HUART1{
 		UART1Handle.Init.HwFlowCtl = UART_HWCONTROL_NONE;
 		UART1Handle.Init.OverSampling = UART_OVERSAMPLING_16;
 		if(HAL_UART_Init(&UART1Handle) != HAL_OK) Error_Handler();
+		delete TX;
+		delete RX;
 	}
 }
 
 void main_(void){
 	
-	HI2C1::Init();
-	HUART1::Init();
+	HI2C1::Init(B08,B09,GPIO_AF4_I2C1);
+	HUART1::Init(B06,B07,GPIO_AF7_USART1);
 	HTIM10::Init();
 	
 	HUART Debug(&HUART1::UART1Handle);
@@ -103,7 +87,7 @@ void main_(void){
 	Print("\n");
 	// ------------------ Print I2C device ----- End -----------
 
-	GPIO LED13(GPIOC,GPIO_PIN_13,GPIO_MODE_OUTPUT_PP,GPIO_NOPULL,GPIO_SPEED_HIGH);
+	GPIO LED13(C13,OUT_PP,NO,SPEED);
 	LED13.Write(0);
 	
 	OLED1306 TS(&HI2C1::I2C1Handle,0x78,8,8,128);
