@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
+    <generated>
+      <config projectName="STM32F411CEUXCppTemplate" targetName="CLion.elf" />
+      <config projectName="STM32F411CEUXCppTemplate" targetName=".CLion.elf" />
+      <config projectName="STM32F411CEUXCppTemplate" targetName="STM32F411CEUXCppTemplate.elf" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_DIR=".CMake" ENABLED="true" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1399b21f-7d03-4287-9d6f-d9ef993561f2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ClangdSettings">
+    <option name="formatViaClangd" value="false" />
+  </component>
+  <component name="EmbeddedSvdWindowState">
+    <option name="columnWidths">
+      <list>
+        <option value="444" />
+        <option value="82" />
+        <option value="770" />
+      </list>
+    </option>
+    <option name="columnOrder">
+      <list>
+        <option value="名称" />
+        <option value="值" />
+        <option value="描述" />
+      </list>
+    </option>
+    <option name="loadedFiles">
+      <list>
+        <option value="c:\ARM\OpenOCD-20211118-0.11.0\STM32F4_svd_V1.2\STM32F411.svd" />
+      </list>
+    </option>
+    <option name="nodes">
+      <map>
+        <entry key="STM32F411.svd" value="-E" />
+        <entry key="STM32F411.svd|g:TIM" value="-E" />
+        <entry key="STM32F411.svd|p:RCC" value="-E" />
+        <entry key="STM32F411.svd|p:RCC|AHB1ENR" value="HC" />
+        <entry key="STM32F411.svd|p:RCC|AHB2ENR" value="HC" />
+        <entry key="STM32F411.svd|p:RCC|APB1ENR" value="HC" />
+        <entry key="STM32F411.svd|p:RCC|APB2ENR" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10" value="-E" />
+        <entry key="STM32F411.svd|p:TIM10|ARR" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10|CCER" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10|CCMR1_Input" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10|CCMR1_Output" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10|CCR1" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10|CNT" value="HE" />
+        <entry key="STM32F411.svd|p:TIM10|CR1" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10|DIER" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10|EGR" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10|PSC" value="HC" />
+        <entry key="STM32F411.svd|p:TIM10|SR" value="HC" />
+      </map>
+    </option>
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
+  <component name="ProjectId" id="21xSov2iMyVSXOXw79NaefAno5N" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="RunOnceActivity.cidr.known.project.marker" value="true" />
+    <property name="ToolWindowFavorites.ShowToolbar" value="false" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="cf.advertisement.text.overridden" value="true" />
+    <property name="cf.first.check.clang-format" value="false" />
+    <property name="cidr.known.project.marker" value="true" />
+    <property name="cmake.loaded.for.project" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../F411_CppKeil" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="serialMonitor.commands" value="" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.C/C++" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="G:\Code\STM32Cpp\F411_Cpp\_System" />
+      <recent name="G:\Code\STM32Cpp\F411_Cpp" />
+      <recent name="G:\Code\STM32Cpp\F411_Cpp\Application" />
+      <recent name="G:\Code\STM32Cpp\F411_Cpp\System" />
+    </key>
+  </component>
+  <component name="RunManager" selected="OpenOCD 下载并运行.Run">
+    <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="STM32F411CEUXCppTemplate.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="STM32F411CEUXCppTemplate" TARGET_NAME="STM32F411CEUXCppTemplate.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="STM32F411CEUXCppTemplate" RUN_TARGET_NAME="STM32F411CEUXCppTemplate.elf">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Run" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="STM32F411CEUXCppTemplate" TARGET_NAME="STM32F411CEUXCppTemplate.elf" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="STM32F411CEUXCppTemplate" RUN_TARGET_NAME="STM32F411CEUXCppTemplate.elf">
+      <openocd version="1" gdb-port="3333" telnet-port="4444" board-config="C:\ARM\OpenOCD-20211118-0.11.0\stm32f411ceu6_stlink.cfg" reset-type="RUN" download-type="ALWAYS">
+        <debugger kind="GDB" isBundled="true" />
+      </openocd>
+      <method v="2">
+        <option name="CLION.COMPOUND.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="CMake 应用程序.STM32F411CEUXCppTemplate.elf" />
+      <item itemvalue="OpenOCD 下载并运行.Run" />
+    </list>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="SvnConfiguration">
+    <configuration>C:\Users\qin19\AppData\Roaming\Subversion</configuration>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1399b21f-7d03-4287-9d6f-d9ef993561f2" name="Default Changelist" comment="" />
+      <created>1638881428199</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1638881428199</updated>
+      <workItem from="1638881471813" duration="550000" />
+      <workItem from="1638882148389" duration="1915000" />
+      <workItem from="1638888101594" duration="3739000" />
+      <workItem from="1638891965629" duration="587000" />
+      <workItem from="1638946496592" duration="755000" />
+      <workItem from="1638947403168" duration="67000" />
+      <workItem from="1638947851519" duration="2690000" />
+      <workItem from="1638950722642" duration="47000" />
+      <workItem from="1638950791379" duration="354000" />
+      <workItem from="1638951203007" duration="51000" />
+      <workItem from="1638951673072" duration="2000" />
+      <workItem from="1638951693143" duration="663000" />
+      <workItem from="1638952713141" duration="160000" />
+      <workItem from="1638957955053" duration="1008000" />
+      <workItem from="1638966020155" duration="9732000" />
+      <workItem from="1639029989066" duration="4000" />
+      <workItem from="1639033902577" duration="9298000" />
+      <workItem from="1639045048318" duration="6765000" />
+      <workItem from="1639051877432" duration="16000" />
+      <workItem from="1639053273144" duration="5059000" />
+      <workItem from="1639120294471" duration="5075000" />
+      <workItem from="1639136201031" duration="1980000" />
+      <workItem from="1639206423198" duration="10880000" />
+      <workItem from="1639221776879" duration="4943000" />
+      <workItem from="1639233684236" duration="929000" />
+      <workItem from="1639295041517" duration="3125000" />
+      <workItem from="1639304900474" duration="7648000" />
+      <workItem from="1639317259332" duration="3139000" />
+      <workItem from="1639378169640" duration="8884000" />
+      <workItem from="1639388349460" duration="2678000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/_Application/main.cpp</url>
+          <line>44</line>
+          <option name="timeStamp" value="12" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
