@@ -99,6 +99,9 @@
 		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/STM32F411CEUX_FLASH.ld">
 			<Option target="STM32F411CEUXCppTemplate.elf"/>
 		</Unit>
+		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Application/MLX90614.h">
+			<Option target="STM32F411CEUXCppTemplate.elf"/>
+		</Unit>
 		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Application/basic.cpp">
 			<Option target="STM32F411CEUXCppTemplate.elf"/>
 		</Unit>

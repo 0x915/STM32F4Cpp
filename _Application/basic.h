@@ -2,39 +2,45 @@
 
 class HUART{
   private:
-	UART_HandleTypeDef UARTx;
+	UART_HandleTypeDef *UARTx;
   public:
-	HUART(const UART_HandleTypeDef *UARTxx) : UARTx(*UARTxx){}
+	HUART(UART_HandleTypeDef *UARTxx) : UARTx(UARTxx){}
 	
 	void SeedByteString(const char str[]){
 		for(uint16_t i = 0;str[i] != '\0';i++){
 			uint8_t tmp[] = {str[i]};
-			HAL_UART_Transmit(&UARTx,tmp,1,100);
+			HAL_UART_Transmit(UARTx,tmp,1,100);
 		}
 	}
 };
 
 class HI2C{
   private:
-	I2C_HandleTypeDef I2Cx;
+	I2C_HandleTypeDef *I2Cx;
 	uint8_t _MemSize;
+	uint8_t buffer[2] = {0};
   public:
-	HI2C(const I2C_HandleTypeDef *I2Cxx,uint8_t MemSize = I2C_MEMADD_SIZE_8BIT) : I2Cx(*I2Cxx){
+	HI2C(I2C_HandleTypeDef *I2Cxx,uint8_t MemSize = I2C_MEMADD_SIZE_8BIT) : I2Cx(I2Cxx){
 		_MemSize = MemSize;
 	}
 	
-	void Write(uint16_t slave,uint16_t reg,uint8_t data){
-		HAL_I2C_Mem_Write(&I2Cx,slave,reg,_MemSize,&data,1,10);
+	void Speed(uint32_t bps){
+		I2Cx->Init.ClockSpeed = bps;
+		if(HAL_I2C_Init(I2Cx) != HAL_OK) Error_Handler();
 	}
 	
-	uint8_t Read(uint16_t slave,uint16_t mem){
-		uint8_t data;
-		HAL_I2C_Mem_Read(&I2Cx,slave,mem,8,&data,8,10);
-		return data;
+	void Write(uint16_t slave,uint16_t reg,uint8_t data){
+		HAL_I2C_Mem_Write(I2Cx,slave,reg,_MemSize,&data,1,10);
+	}
+	
+	uint16_t Read(uint16_t slave,uint16_t mem,uint8_t size = 2){
+		if(HAL_I2C_Mem_Read(I2Cx,slave,mem,8,buffer,size,10) == HAL_OK)
+			return buffer[1] << 8 | buffer[0] << 0;
+		else return 0xffff;
 	}
 	
 	bool Check(uint8_t addr,uint8_t mem = 0x00,uint8_t data[8] = {}){
-		if(HAL_I2C_Mem_Read(&I2Cx,addr,mem,_MemSize,data,1,1) == HAL_OK) return true;
+		if(HAL_I2C_Mem_Read(I2Cx,addr,mem,_MemSize,data,1,1) == HAL_OK) return true;
 		else return false;
 	}
 	
@@ -43,17 +49,17 @@ class HI2C{
 
 class Delay{
   private:
-	TIM_HandleTypeDef TIMx;
+	TIM_HandleTypeDef *TIMx;
   
   public:
-	Delay(const TIM_HandleTypeDef *TIMxx) : TIMx(*TIMxx){}
+	Delay(TIM_HandleTypeDef *TIMxx) : TIMx(TIMxx){}
 	
 	void us(uint16_t delay){
 		uint16_t count = 0xffff - delay - 4;
-		HAL_TIM_Base_Start(&TIMx);
-			__HAL_TIM_SetCounter(&TIMx,count);
-		while(count < 0xffff - 5) count = __HAL_TIM_GetCounter(&TIMx);
-		HAL_TIM_Base_Stop(&TIMx);
+		HAL_TIM_Base_Start(TIMx);
+			__HAL_TIM_SetCounter(TIMx,count);
+		while(count < 0xffff - 5) count = __HAL_TIM_GetCounter(TIMx);
+		HAL_TIM_Base_Stop(TIMx);
 	}
 	
 	void ms(uint16_t delay){
@@ -218,3 +224,6 @@ class GPIO{
 		return HAL_GPIO_ReadPin(_GPIOx,_PINx);
 	}
 };
+
+
+

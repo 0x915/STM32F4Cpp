@@ -1,5 +1,6 @@
 #include "basic.h"
 #include "ssd1306.h"
+#include "MLX90614.h"
 
 namespace HTIM10{
 	TIM_HandleTypeDef TIM10Handle;
@@ -16,14 +17,31 @@ namespace HTIM10{
 		if(HAL_TIM_Base_Init(&TIM10Handle) != HAL_OK) Error_Handler();
 	}
 }
+
+//namespace SMBUS1{
+//	SMBUS_HandleTypeDef SMB1Handle;
+//
+//	void Init(GPIO_Port PortSCL,GPIO_Port PortSDA,GPIO_Port PortAlert,uint32_t AF){
+//		GPIO *SCL = new GPIO(PortSCL,AF_OD,NO,LOW,AF);
+//		GPIO *SDA = new GPIO(PortSDA,AF_OD,NO,LOW,AF);
+//		GPIO *SMBA = new GPIO(PortAlert,AF_OD,NO,LOW,AF);
+//		__HAL_RCC_I2C1_CLK_ENABLE();
+//		SMB1Handle.Instance = I2C1;
+//		SMB1Handle.Mode = HAL_SMBUS_MODE_MASTER;
+//		SMB1Handle.Init.ClockSpeed = 100000;
+//
+//	}
+//}
+
 namespace HI2C1{
 	I2C_HandleTypeDef I2C1Handle;
 	
 	void Init(GPIO_Port PortSCL,GPIO_Port PortSDA,uint32_t AF){
-		GPIO* SCL = new GPIO(PortSCL,AF_OD,NO,LOW,AF);
-		GPIO* SDA = new GPIO(PortSDA,AF_OD,NO,LOW,AF);
+		GPIO *SCL = new GPIO(PortSCL,AF_OD,NO,LOW,AF);
+		GPIO *SDA = new GPIO(PortSDA,AF_OD,NO,LOW,AF);
 		__HAL_RCC_I2C1_CLK_ENABLE();
 		I2C1Handle.Instance = I2C1;
+		I2C1Handle.Mode = HAL_I2C_MODE_MASTER;
 		I2C1Handle.Init.ClockSpeed = 400000;
 		I2C1Handle.Init.DutyCycle = I2C_DUTYCYCLE_2;
 		I2C1Handle.Init.OwnAddress1 = 0;
@@ -37,12 +55,13 @@ namespace HI2C1{
 		delete SDA;
 	}
 }
+
 namespace HUART1{
 	UART_HandleTypeDef UART1Handle;
-
+	
 	void Init(GPIO_Port PortTX,GPIO_Port PortRX,uint32_t AF){
-		GPIO* TX = new GPIO(PortTX,AF_PP,NO,LOW,AF);
-		GPIO* RX = new GPIO(PortRX,AF_PP,NO,LOW,AF);
+		GPIO *TX = new GPIO(PortTX,AF_PP,NO,LOW,AF);
+		GPIO *RX = new GPIO(PortRX,AF_PP,NO,LOW,AF);
 		__HAL_RCC_USART1_CLK_ENABLE();
 		UART1Handle.Instance = USART1;
 		UART1Handle.Init.BaudRate = 115200;
@@ -58,6 +77,7 @@ namespace HUART1{
 	}
 }
 
+static char StrCache[16] = {};
 void main_(void){
 	
 	HI2C1::Init(B08,B09,GPIO_AF4_I2C1);
@@ -86,20 +106,33 @@ void main_(void){
 	}
 	Print("\n");
 	// ------------------ Print I2C device ----- End -----------
-
+	
 	GPIO LED13(C13,OUT_PP,NO,SPEED);
 	LED13.Write(0);
 	
 	OLED1306 TS(&HI2C1::I2C1Handle,0x78,8,8,128);
-	
-	TS.DrawString(Page1,Col1,h12,"1234567890");
-	TS.DrawString(Page3,Col1,h12,"F(xyz,ijk)");
-	TS.DrawString(Page5,Col1,h12,"<A>[B](C);");
-	TS.DrawString(Page7,Col1,h12,"~!@#$%^&&*");
+
+//	TS.DrawString(Page1,Col1,h12,"1234567890");
+//	TS.DrawString(Page3,Col1,h12,"F(xyz,ijk)!@#$%^&*");
+//	TS.DrawString(Page5,Col1,h12,"<A>[B](C);");
+
+//	MLX90614 DEV(&HI2C1::I2C1Handle,0x00);
+//	float OBJ,AMB;
+//	uint16_t ADDR = DEV.I2C_Read(0x0E|0x20,2);
+//	sprintf(StrCache,"SMBus 0x%.4X",ADDR);
+//	TS.DrawString(Page3,Col1,h12,StrCache);
 	
 	while(true){
+//		LED13.Write(1);
 		Time.ms(1000);
 		LED13.Toggle();
+		
+//		OBJ = DEV.GetTarget();
+//		sprintf(StrCache,"OBJ : %.2lf C",OBJ);
+//		TS.DrawString(Page7,Col1,h12,StrCache);
+//		AMB = DEV.GetAmbient();
+//		sprintf(StrCache,"AMB : %.2lf C",AMB);
+//		TS.DrawString(Page5,Col1,h12,StrCache);
 	}
 }
 

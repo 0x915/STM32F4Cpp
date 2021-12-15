@@ -14,12 +14,6 @@
 # EXTERNAL cache entries
 ########################
 
-//Value Computed by CMake
-.CLion_BINARY_DIR:STATIC=G:/Code/STM32Cpp/F411_Cpp/.CMake
-
-//Value Computed by CMake
-.CLion_SOURCE_DIR:STATIC=G:/Code/STM32Cpp/F411_Cpp
-
 //Path to a program.
 CMAKE_ADDR2LINE:FILEPATH=C:/ARM/GCC-ARM-10.3-2021.10/bin/arm-none-eabi-addr2line.exe
 
@@ -135,7 +129,7 @@ CMAKE_EXE_LINKER_FLAGS_RELEASE:STRING=
 CMAKE_EXE_LINKER_FLAGS_RELWITHDEBINFO:STRING=
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/.CLion
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files (x86)/STM32F411CEUXCppTemplate
 
 //Path to a program.
 CMAKE_LINKER:FILEPATH=C:/ARM/GCC-ARM-10.3-2021.10/bin/arm-none-eabi-ld.exe

@@ -312,11 +312,15 @@ stm32f4xx_hal_lptim.h
 stm32f4xx_hal_mmc.h
 ../_System/stm32f4xx_hal_mmc.h
 
+G:/Code/STM32Cpp/F411_Cpp/_Application/MLX90614.h
+
 G:/Code/STM32Cpp/F411_Cpp/_Application/basic.cpp
 basic.h
 G:/Code/STM32Cpp/F411_Cpp/_Application/basic.h
 ssd1306.h
 G:/Code/STM32Cpp/F411_Cpp/_Application/ssd1306.h
+MLX90614.h
+G:/Code/STM32Cpp/F411_Cpp/_Application/MLX90614.h
 
 G:/Code/STM32Cpp/F411_Cpp/_Application/basic.h
 main.h

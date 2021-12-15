@@ -26,8 +26,8 @@
     <option name="columnWidths">
       <list>
         <option value="444" />
-        <option value="82" />
-        <option value="770" />
+        <option value="102" />
+        <option value="806" />
       </list>
     </option>
     <option name="columnOrder">
@@ -41,29 +41,6 @@
       <list>
         <option value="c:\ARM\OpenOCD-20211118-0.11.0\STM32F4_svd_V1.2\STM32F411.svd" />
       </list>
-    </option>
-    <option name="nodes">
-      <map>
-        <entry key="STM32F411.svd" value="-E" />
-        <entry key="STM32F411.svd|g:TIM" value="-E" />
-        <entry key="STM32F411.svd|p:RCC" value="-E" />
-        <entry key="STM32F411.svd|p:RCC|AHB1ENR" value="HC" />
-        <entry key="STM32F411.svd|p:RCC|AHB2ENR" value="HC" />
-        <entry key="STM32F411.svd|p:RCC|APB1ENR" value="HC" />
-        <entry key="STM32F411.svd|p:RCC|APB2ENR" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10" value="-E" />
-        <entry key="STM32F411.svd|p:TIM10|ARR" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10|CCER" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10|CCMR1_Input" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10|CCMR1_Output" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10|CCR1" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10|CNT" value="HE" />
-        <entry key="STM32F411.svd|p:TIM10|CR1" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10|DIER" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10|EGR" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10|PSC" value="HC" />
-        <entry key="STM32F411.svd|p:TIM10|SR" value="HC" />
-      </map>
     </option>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
@@ -94,13 +71,13 @@
     <property name="cf.first.check.clang-format" value="false" />
     <property name="cidr.known.project.marker" value="true" />
     <property name="cmake.loaded.for.project" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../F411_CppKeil" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="serialMonitor.commands" value="" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -180,12 +157,32 @@
       <workItem from="1639317259332" duration="3139000" />
       <workItem from="1639378169640" duration="8884000" />
       <workItem from="1639388349460" duration="3190000" />
-      <workItem from="1639393832858" duration="4431000" />
+      <workItem from="1639393832858" duration="6617000" />
+      <workItem from="1639405522303" duration="527000" />
+      <workItem from="1639406262198" duration="156000" />
+      <workItem from="1639406454301" duration="80000" />
+      <workItem from="1639406570543" duration="926000" />
+      <workItem from="1639470649035" duration="7092000" />
+      <workItem from="1639481457210" duration="5800000" />
+      <workItem from="1639489734626" duration="5399000" />
+      <workItem from="1639549236691" duration="2690000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -194,11 +191,6 @@
           <url>file://$PROJECT_DIR$/_Application/main.cpp</url>
           <line>44</line>
           <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/_Application/basic.h</url>
-          <line>86</line>
-          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

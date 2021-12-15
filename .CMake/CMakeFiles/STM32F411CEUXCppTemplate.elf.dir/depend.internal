@@ -884,6 +884,7 @@ CMakeFiles/STM32F411CEUXCppTemplate.elf.dir/_Application/basic.cpp.obj
  ../_Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim_ex.h
  ../_Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h
  ../_System/stm32f4xx_hal_conf.h
+ G:/Code/STM32Cpp/F411_Cpp/_Application/MLX90614.h
  G:/Code/STM32Cpp/F411_Cpp/_Application/basic.cpp
  G:/Code/STM32Cpp/F411_Cpp/_Application/basic.h
  G:/Code/STM32Cpp/F411_Cpp/_Application/font.h
