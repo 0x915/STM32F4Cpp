@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_flash.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   Header file of FLASH HAL module.
   ******************************************************************************
   * @attention

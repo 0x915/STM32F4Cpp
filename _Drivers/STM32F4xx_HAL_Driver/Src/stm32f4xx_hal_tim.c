@@ -3066,13 +3066,13 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Init(TIM_HandleTypeDef *htim,  TIM_Encoder_Ini
   /* Configure the Time base in the Encoder Mode */
   TIM_Base_SetConfig(htim->Instance, &htim->Init);
 
-  /* Get the TIMx SMCR register value */
+  /* Get the TIMx6050 SMCR register value */
   tmpsmcr = htim->Instance->SMCR;
 
-  /* Get the TIMx CCMR1 register value */
+  /* Get the TIMx6050 CCMR1 register value */
   tmpccmr1 = htim->Instance->CCMR1;
 
-  /* Get the TIMx CCER register value */
+  /* Get the TIMx6050 CCER register value */
   tmpccer = htim->Instance->CCER;
 
   /* Set the encoder Mode */
@@ -3093,13 +3093,13 @@ HAL_StatusTypeDef HAL_TIM_Encoder_Init(TIM_HandleTypeDef *htim,  TIM_Encoder_Ini
   tmpccer &= ~(TIM_CCER_CC1NP | TIM_CCER_CC2NP);
   tmpccer |= sConfig->IC1Polarity | (sConfig->IC2Polarity << 4U);
 
-  /* Write to TIMx SMCR */
+  /* Write to TIMx6050 SMCR */
   htim->Instance->SMCR = tmpsmcr;
 
-  /* Write to TIMx CCMR1 */
+  /* Write to TIMx6050 CCMR1 */
   htim->Instance->CCMR1 = tmpccmr1;
 
-  /* Write to TIMx CCER */
+  /* Write to TIMx6050 CCER */
   htim->Instance->CCER = tmpccer;
 
   /* Initialize the DMA burst operation state */
@@ -5339,7 +5339,7 @@ HAL_StatusTypeDef HAL_TIM_ConfigClockSource(TIM_HandleTypeDef *htim, TIM_ClockCo
       /* Select the External clock mode1 and the ETRF trigger */
       tmpsmcr = htim->Instance->SMCR;
       tmpsmcr |= (TIM_SLAVEMODE_EXTERNAL1 | TIM_CLOCKSOURCE_ETRMODE1);
-      /* Write to TIMx SMCR */
+      /* Write to TIMx6050 SMCR */
       htim->Instance->SMCR = tmpsmcr;
       break;
     }
@@ -5455,7 +5455,7 @@ HAL_StatusTypeDef HAL_TIM_ConfigTI1Input(TIM_HandleTypeDef *htim, uint32_t TI1_S
   assert_param(IS_TIM_XOR_INSTANCE(htim->Instance));
   assert_param(IS_TIM_TI1SELECTION(TI1_Selection));
 
-  /* Get the TIMx CR2 register value */
+  /* Get the TIMx6050 CR2 register value */
   tmpcr2 = htim->Instance->CR2;
 
   /* Reset the TI1 selection */
@@ -6834,12 +6834,12 @@ static void TIM_OC1_SetConfig(TIM_TypeDef *TIMx, TIM_OC_InitTypeDef *OC_Config)
   /* Disable the Channel 1: Reset the CC1E Bit */
   TIMx->CCER &= ~TIM_CCER_CC1E;
 
-  /* Get the TIMx CCER register value */
+  /* Get the TIMx6050 CCER register value */
   tmpccer = TIMx->CCER;
-  /* Get the TIMx CR2 register value */
+  /* Get the TIMx6050 CR2 register value */
   tmpcr2 =  TIMx->CR2;
 
-  /* Get the TIMx CCMR1 register value */
+  /* Get the TIMx6050 CCMR1 register value */
   tmpccmrx = TIMx->CCMR1;
 
   /* Reset the Output Compare Mode Bits */
@@ -6881,16 +6881,16 @@ static void TIM_OC1_SetConfig(TIM_TypeDef *TIMx, TIM_OC_InitTypeDef *OC_Config)
     tmpcr2 |= OC_Config->OCNIdleState;
   }
 
-  /* Write to TIMx CR2 */
+  /* Write to TIMx6050 CR2 */
   TIMx->CR2 = tmpcr2;
 
-  /* Write to TIMx CCMR1 */
+  /* Write to TIMx6050 CCMR1 */
   TIMx->CCMR1 = tmpccmrx;
 
   /* Set the Capture Compare Register value */
   TIMx->CCR1 = OC_Config->Pulse;
 
-  /* Write to TIMx CCER */
+  /* Write to TIMx6050 CCER */
   TIMx->CCER = tmpccer;
 }
 
@@ -6909,12 +6909,12 @@ void TIM_OC2_SetConfig(TIM_TypeDef *TIMx, TIM_OC_InitTypeDef *OC_Config)
   /* Disable the Channel 2: Reset the CC2E Bit */
   TIMx->CCER &= ~TIM_CCER_CC2E;
 
-  /* Get the TIMx CCER register value */
+  /* Get the TIMx6050 CCER register value */
   tmpccer = TIMx->CCER;
-  /* Get the TIMx CR2 register value */
+  /* Get the TIMx6050 CR2 register value */
   tmpcr2 =  TIMx->CR2;
 
-  /* Get the TIMx CCMR1 register value */
+  /* Get the TIMx6050 CCMR1 register value */
   tmpccmrx = TIMx->CCMR1;
 
   /* Reset the Output Compare mode and Capture/Compare selection Bits */
@@ -6957,16 +6957,16 @@ void TIM_OC2_SetConfig(TIM_TypeDef *TIMx, TIM_OC_InitTypeDef *OC_Config)
     tmpcr2 |= (OC_Config->OCNIdleState << 2U);
   }
 
-  /* Write to TIMx CR2 */
+  /* Write to TIMx6050 CR2 */
   TIMx->CR2 = tmpcr2;
 
-  /* Write to TIMx CCMR1 */
+  /* Write to TIMx6050 CCMR1 */
   TIMx->CCMR1 = tmpccmrx;
 
   /* Set the Capture Compare Register value */
   TIMx->CCR2 = OC_Config->Pulse;
 
-  /* Write to TIMx CCER */
+  /* Write to TIMx6050 CCER */
   TIMx->CCER = tmpccer;
 }
 
@@ -6985,12 +6985,12 @@ static void TIM_OC3_SetConfig(TIM_TypeDef *TIMx, TIM_OC_InitTypeDef *OC_Config)
   /* Disable the Channel 3: Reset the CC2E Bit */
   TIMx->CCER &= ~TIM_CCER_CC3E;
 
-  /* Get the TIMx CCER register value */
+  /* Get the TIMx6050 CCER register value */
   tmpccer = TIMx->CCER;
-  /* Get the TIMx CR2 register value */
+  /* Get the TIMx6050 CR2 register value */
   tmpcr2 =  TIMx->CR2;
 
-  /* Get the TIMx CCMR2 register value */
+  /* Get the TIMx6050 CCMR2 register value */
   tmpccmrx = TIMx->CCMR2;
 
   /* Reset the Output Compare mode and Capture/Compare selection Bits */
@@ -7031,16 +7031,16 @@ static void TIM_OC3_SetConfig(TIM_TypeDef *TIMx, TIM_OC_InitTypeDef *OC_Config)
     tmpcr2 |= (OC_Config->OCNIdleState << 4U);
   }
 
-  /* Write to TIMx CR2 */
+  /* Write to TIMx6050 CR2 */
   TIMx->CR2 = tmpcr2;
 
-  /* Write to TIMx CCMR2 */
+  /* Write to TIMx6050 CCMR2 */
   TIMx->CCMR2 = tmpccmrx;
 
   /* Set the Capture Compare Register value */
   TIMx->CCR3 = OC_Config->Pulse;
 
-  /* Write to TIMx CCER */
+  /* Write to TIMx6050 CCER */
   TIMx->CCER = tmpccer;
 }
 
@@ -7059,12 +7059,12 @@ static void TIM_OC4_SetConfig(TIM_TypeDef *TIMx, TIM_OC_InitTypeDef *OC_Config)
   /* Disable the Channel 4: Reset the CC4E Bit */
   TIMx->CCER &= ~TIM_CCER_CC4E;
 
-  /* Get the TIMx CCER register value */
+  /* Get the TIMx6050 CCER register value */
   tmpccer = TIMx->CCER;
-  /* Get the TIMx CR2 register value */
+  /* Get the TIMx6050 CR2 register value */
   tmpcr2 =  TIMx->CR2;
 
-  /* Get the TIMx CCMR2 register value */
+  /* Get the TIMx6050 CCMR2 register value */
   tmpccmrx = TIMx->CCMR2;
 
   /* Reset the Output Compare mode and Capture/Compare selection Bits */
@@ -7091,16 +7091,16 @@ static void TIM_OC4_SetConfig(TIM_TypeDef *TIMx, TIM_OC_InitTypeDef *OC_Config)
     tmpcr2 |= (OC_Config->OCIdleState << 6U);
   }
 
-  /* Write to TIMx CR2 */
+  /* Write to TIMx6050 CR2 */
   TIMx->CR2 = tmpcr2;
 
-  /* Write to TIMx CCMR2 */
+  /* Write to TIMx6050 CCMR2 */
   TIMx->CCMR2 = tmpccmrx;
 
   /* Set the Capture Compare Register value */
   TIMx->CCR4 = OC_Config->Pulse;
 
-  /* Write to TIMx CCER */
+  /* Write to TIMx6050 CCER */
   TIMx->CCER = tmpccer;
 }
 
@@ -7118,7 +7118,7 @@ static HAL_StatusTypeDef TIM_SlaveTimer_SetConfig(TIM_HandleTypeDef *htim,
   uint32_t tmpccmr1;
   uint32_t tmpccer;
 
-  /* Get the TIMx SMCR register value */
+  /* Get the TIMx6050 SMCR register value */
   tmpsmcr = htim->Instance->SMCR;
 
   /* Reset the Trigger Selection Bits */
@@ -7131,7 +7131,7 @@ static HAL_StatusTypeDef TIM_SlaveTimer_SetConfig(TIM_HandleTypeDef *htim,
   /* Set the slave mode */
   tmpsmcr |= sSlaveConfig->SlaveMode;
 
-  /* Write to TIMx SMCR */
+  /* Write to TIMx6050 SMCR */
   htim->Instance->SMCR = tmpsmcr;
 
   /* Configure the trigger prescaler, filter, and polarity */
@@ -7172,7 +7172,7 @@ static HAL_StatusTypeDef TIM_SlaveTimer_SetConfig(TIM_HandleTypeDef *htim,
       tmpccmr1 &= ~TIM_CCMR1_IC1F;
       tmpccmr1 |= ((sSlaveConfig->TriggerFilter) << 4U);
 
-      /* Write to TIMx CCMR1 and CCER registers */
+      /* Write to TIMx6050 CCMR1 and CCER registers */
       htim->Instance->CCMR1 = tmpccmr1;
       htim->Instance->CCER = tmpccer;
       break;
@@ -7274,7 +7274,7 @@ void TIM_TI1_SetConfig(TIM_TypeDef *TIMx, uint32_t TIM_ICPolarity, uint32_t TIM_
   tmpccer &= ~(TIM_CCER_CC1P | TIM_CCER_CC1NP);
   tmpccer |= (TIM_ICPolarity & (TIM_CCER_CC1P | TIM_CCER_CC1NP));
 
-  /* Write to TIMx CCMR1 and CCER registers */
+  /* Write to TIMx6050 CCMR1 and CCER registers */
   TIMx->CCMR1 = tmpccmr1;
   TIMx->CCER = tmpccer;
 }
@@ -7309,7 +7309,7 @@ static void TIM_TI1_ConfigInputStage(TIM_TypeDef *TIMx, uint32_t TIM_ICPolarity,
   tmpccer &= ~(TIM_CCER_CC1P | TIM_CCER_CC1NP);
   tmpccer |= TIM_ICPolarity;
 
-  /* Write to TIMx CCMR1 and CCER registers */
+  /* Write to TIMx6050 CCMR1 and CCER registers */
   TIMx->CCMR1 = tmpccmr1;
   TIMx->CCER = tmpccer;
 }
@@ -7357,7 +7357,7 @@ static void TIM_TI2_SetConfig(TIM_TypeDef *TIMx, uint32_t TIM_ICPolarity, uint32
   tmpccer &= ~(TIM_CCER_CC2P | TIM_CCER_CC2NP);
   tmpccer |= ((TIM_ICPolarity << 4U) & (TIM_CCER_CC2P | TIM_CCER_CC2NP));
 
-  /* Write to TIMx CCMR1 and CCER registers */
+  /* Write to TIMx6050 CCMR1 and CCER registers */
   TIMx->CCMR1 = tmpccmr1 ;
   TIMx->CCER = tmpccer;
 }
@@ -7392,7 +7392,7 @@ static void TIM_TI2_ConfigInputStage(TIM_TypeDef *TIMx, uint32_t TIM_ICPolarity,
   tmpccer &= ~(TIM_CCER_CC2P | TIM_CCER_CC2NP);
   tmpccer |= (TIM_ICPolarity << 4U);
 
-  /* Write to TIMx CCMR1 and CCER registers */
+  /* Write to TIMx6050 CCMR1 and CCER registers */
   TIMx->CCMR1 = tmpccmr1 ;
   TIMx->CCER = tmpccer;
 }
@@ -7440,7 +7440,7 @@ static void TIM_TI3_SetConfig(TIM_TypeDef *TIMx, uint32_t TIM_ICPolarity, uint32
   tmpccer &= ~(TIM_CCER_CC3P | TIM_CCER_CC3NP);
   tmpccer |= ((TIM_ICPolarity << 8U) & (TIM_CCER_CC3P | TIM_CCER_CC3NP));
 
-  /* Write to TIMx CCMR2 and CCER registers */
+  /* Write to TIMx6050 CCMR2 and CCER registers */
   TIMx->CCMR2 = tmpccmr2;
   TIMx->CCER = tmpccer;
 }
@@ -7488,7 +7488,7 @@ static void TIM_TI4_SetConfig(TIM_TypeDef *TIMx, uint32_t TIM_ICPolarity, uint32
   tmpccer &= ~(TIM_CCER_CC4P | TIM_CCER_CC4NP);
   tmpccer |= ((TIM_ICPolarity << 12U) & (TIM_CCER_CC4P | TIM_CCER_CC4NP));
 
-  /* Write to TIMx CCMR2 and CCER registers */
+  /* Write to TIMx6050 CCMR2 and CCER registers */
   TIMx->CCMR2 = tmpccmr2;
   TIMx->CCER = tmpccer ;
 }
@@ -7512,17 +7512,17 @@ static void TIM_ITRx_SetConfig(TIM_TypeDef *TIMx, uint32_t InputTriggerSource)
 {
   uint32_t tmpsmcr;
 
-  /* Get the TIMx SMCR register value */
+  /* Get the TIMx6050 SMCR register value */
   tmpsmcr = TIMx->SMCR;
   /* Reset the TS Bits */
   tmpsmcr &= ~TIM_SMCR_TS;
   /* Set the Input Trigger source and the slave mode*/
   tmpsmcr |= (InputTriggerSource | TIM_SLAVEMODE_EXTERNAL1);
-  /* Write to TIMx SMCR */
+  /* Write to TIMx6050 SMCR */
   TIMx->SMCR = tmpsmcr;
 }
 /**
-  * @brief  Configures the TIMx External Trigger (ETR).
+  * @brief  Configures the TIMx6050 External Trigger (ETR).
   * @param  TIMx to select the TIM peripheral
   * @param  TIM_ExtTRGPrescaler The external Trigger Prescaler.
   *          This parameter can be one of the following values:
@@ -7551,7 +7551,7 @@ void TIM_ETR_SetConfig(TIM_TypeDef *TIMx, uint32_t TIM_ExtTRGPrescaler,
   /* Set the Prescaler, the Filter value and the Polarity */
   tmpsmcr |= (uint32_t)(TIM_ExtTRGPrescaler | (TIM_ExtTRGPolarity | (ExtTRGFilter << 8U)));
 
-  /* Write to TIMx SMCR */
+  /* Write to TIMx6050 SMCR */
   TIMx->SMCR = tmpsmcr;
 }
 

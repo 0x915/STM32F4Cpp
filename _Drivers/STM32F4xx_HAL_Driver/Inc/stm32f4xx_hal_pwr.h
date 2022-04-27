@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_pwr.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   Header file of PWR HAL module.
   ******************************************************************************
   * @attention
@@ -311,7 +311,7 @@ void HAL_PWR_EnterSTANDBYMode(void);
 void HAL_PWR_PVD_IRQHandler(void);
 void HAL_PWR_PVDCallback(void);
 
-/* Cortex _System Control functions  *******************************************/
+/* Cortex System Control functions  *******************************************/
 void HAL_PWR_EnableSleepOnExit(void);
 void HAL_PWR_DisableSleepOnExit(void);
 void HAL_PWR_EnableSEVOnPend(void);

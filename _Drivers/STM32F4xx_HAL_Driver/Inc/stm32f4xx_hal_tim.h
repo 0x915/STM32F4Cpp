@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_tim.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   Header file of TIM HAL module.
   ******************************************************************************
   * @attention
@@ -194,7 +194,7 @@ typedef struct
 } TIM_Encoder_InitTypeDef;
 
 /**
-  * @brief  Clock Configuration UART1Handle Structure definition
+  * @brief  Clock Configuration Handle Structure definition
   */
 typedef struct
 {
@@ -209,7 +209,7 @@ typedef struct
 } TIM_ClockConfigTypeDef;
 
 /**
-  * @brief  TIM Clear Input Configuration UART1Handle Structure definition
+  * @brief  TIM Clear Input Configuration Handle Structure definition
   */
 typedef struct
 {
@@ -330,7 +330,7 @@ typedef enum
 } HAL_TIM_ActiveChannel;
 
 /**
-  * @brief  TIM Time Base UART1Handle Structure definition
+  * @brief  TIM Time Base Handle Structure definition
   */
 #if (USE_HAL_TIM_REGISTER_CALLBACKS == 1)
 typedef struct __TIM_HandleTypeDef
@@ -976,7 +976,7 @@ typedef  void (*pTIM_CallbackTypeDef)(TIM_HandleTypeDef *htim);  /*!< pointer to
   * @}
   */
 
-/** @defgroup DMA_Handle_index TIM DMA UART1Handle Index
+/** @defgroup DMA_Handle_index TIM DMA Handle Index
   * @{
   */
 #define TIM_DMA_ID_UPDATE                ((uint16_t) 0x0000)       /*!< Index of the DMA handle used for Update DMA requests */
@@ -1114,7 +1114,7 @@ typedef  void (*pTIM_CallbackTypeDef)(TIM_HandleTypeDef *htim);  /*!< pointer to
 #define __HAL_TIM_MOE_DISABLE_UNCONDITIONALLY(__HANDLE__)  (__HANDLE__)->Instance->BDTR &= ~(TIM_BDTR_MOE)
 
 /** @brief  Enable the specified TIM interrupt.
-  * @param  __HANDLE__ specifies the TIM UART1Handle.
+  * @param  __HANDLE__ specifies the TIM Handle.
   * @param  __INTERRUPT__ specifies the TIM interrupt source to enable.
   *          This parameter can be one of the following values:
   *            @arg TIM_IT_UPDATE: Update interrupt
@@ -1130,7 +1130,7 @@ typedef  void (*pTIM_CallbackTypeDef)(TIM_HandleTypeDef *htim);  /*!< pointer to
 #define __HAL_TIM_ENABLE_IT(__HANDLE__, __INTERRUPT__)    ((__HANDLE__)->Instance->DIER |= (__INTERRUPT__))
 
 /** @brief  Disable the specified TIM interrupt.
-  * @param  __HANDLE__ specifies the TIM UART1Handle.
+  * @param  __HANDLE__ specifies the TIM Handle.
   * @param  __INTERRUPT__ specifies the TIM interrupt source to disable.
   *          This parameter can be one of the following values:
   *            @arg TIM_IT_UPDATE: Update interrupt
@@ -1146,7 +1146,7 @@ typedef  void (*pTIM_CallbackTypeDef)(TIM_HandleTypeDef *htim);  /*!< pointer to
 #define __HAL_TIM_DISABLE_IT(__HANDLE__, __INTERRUPT__)   ((__HANDLE__)->Instance->DIER &= ~(__INTERRUPT__))
 
 /** @brief  Enable the specified DMA request.
-  * @param  __HANDLE__ specifies the TIM UART1Handle.
+  * @param  __HANDLE__ specifies the TIM Handle.
   * @param  __DMA__ specifies the TIM DMA request to enable.
   *          This parameter can be one of the following values:
   *            @arg TIM_DMA_UPDATE: Update DMA request
@@ -1161,7 +1161,7 @@ typedef  void (*pTIM_CallbackTypeDef)(TIM_HandleTypeDef *htim);  /*!< pointer to
 #define __HAL_TIM_ENABLE_DMA(__HANDLE__, __DMA__)         ((__HANDLE__)->Instance->DIER |= (__DMA__))
 
 /** @brief  Disable the specified DMA request.
-  * @param  __HANDLE__ specifies the TIM UART1Handle.
+  * @param  __HANDLE__ specifies the TIM Handle.
   * @param  __DMA__ specifies the TIM DMA request to disable.
   *          This parameter can be one of the following values:
   *            @arg TIM_DMA_UPDATE: Update DMA request
@@ -1176,7 +1176,7 @@ typedef  void (*pTIM_CallbackTypeDef)(TIM_HandleTypeDef *htim);  /*!< pointer to
 #define __HAL_TIM_DISABLE_DMA(__HANDLE__, __DMA__)        ((__HANDLE__)->Instance->DIER &= ~(__DMA__))
 
 /** @brief  Check whether the specified TIM interrupt flag is set or not.
-  * @param  __HANDLE__ specifies the TIM UART1Handle.
+  * @param  __HANDLE__ specifies the TIM Handle.
   * @param  __FLAG__ specifies the TIM interrupt flag to check.
   *        This parameter can be one of the following values:
   *            @arg TIM_FLAG_UPDATE: Update interrupt flag
@@ -1196,7 +1196,7 @@ typedef  void (*pTIM_CallbackTypeDef)(TIM_HandleTypeDef *htim);  /*!< pointer to
 #define __HAL_TIM_GET_FLAG(__HANDLE__, __FLAG__)          (((__HANDLE__)->Instance->SR &(__FLAG__)) == (__FLAG__))
 
 /** @brief  Clear the specified TIM interrupt flag.
-  * @param  __HANDLE__ specifies the TIM UART1Handle.
+  * @param  __HANDLE__ specifies the TIM Handle.
   * @param  __FLAG__ specifies the TIM interrupt flag to clear.
   *        This parameter can be one of the following values:
   *            @arg TIM_FLAG_UPDATE: Update interrupt flag

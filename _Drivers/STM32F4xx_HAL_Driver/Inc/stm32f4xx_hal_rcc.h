@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_rcc.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   Header file of RCC HAL module.
   ******************************************************************************
   * @attention
@@ -72,7 +72,7 @@ typedef struct
 }RCC_OscInitTypeDef;
 
 /**
-  * @brief  RCC _System, AHB and APB busses clock configuration structure definition
+  * @brief  RCC System, AHB and APB busses clock configuration structure definition
   */
 typedef struct
 {
@@ -184,7 +184,7 @@ typedef struct
   * @}
   */
 
-/** @defgroup RCC_System_Clock_Type _System Clock Type
+/** @defgroup RCC_System_Clock_Type System Clock Type
   * @{
   */
 #define RCC_CLOCKTYPE_SYSCLK             0x00000001U
@@ -195,7 +195,7 @@ typedef struct
   * @}
   */
 
-/** @defgroup RCC_System_Clock_Source _System Clock Source
+/** @defgroup RCC_System_Clock_Source System Clock Source
   * @note     The RCC_SYSCLKSOURCE_PLLRCLK parameter is available only for
   *           STM32F446xx devices.
   * @{
@@ -208,7 +208,7 @@ typedef struct
   * @}
   */
 
-/** @defgroup RCC_System_Clock_Source_Status _System Clock Source Status
+/** @defgroup RCC_System_Clock_Source_Status System Clock Source Status
   * @note     The RCC_SYSCLKSOURCE_STATUS_PLLRCLK parameter is available only for
   *           STM32F446xx devices.
   * @{
@@ -820,10 +820,10 @@ typedef struct
 
 /** @brief  Macros to enable or disable the Internal High Speed oscillator (HSI).
   * @note   The HSI is stopped by hardware when entering STOP and STANDBY modes.
-  *         It is used (enabled by hardware) as system clock source after _Application
+  *         It is used (enabled by hardware) as system clock source after startup
   *         from Reset, wake-up from STOP and STANDBY mode, or in case of failure
   *         of the HSE used directly or indirectly as system clock (if the Clock
-  *         Security _System CSS is enabled).
+  *         Security System CSS is enabled).
   * @note   HSI can not be stopped if it is used as system clock source. In this case,
   *         you have to select another source of the system clock then stop the HSI.
   * @note   After enabling the HSI, the application software should wait on HSIRDY
@@ -1121,7 +1121,7 @@ typedef struct
 /** @brief  Macro to configure the MCO2 clock.
   * @param  __MCOCLKSOURCE__ specifies the MCO clock source.
   *          This parameter can be one of the following values:
-  *            @arg RCC_MCO2SOURCE_SYSCLK: _System clock (SYSCLK) selected as MCO2 source
+  *            @arg RCC_MCO2SOURCE_SYSCLK: System clock (SYSCLK) selected as MCO2 source
   *            @arg RCC_MCO2SOURCE_PLLI2SCLK: PLLI2S clock selected as MCO2 source, available for all STM32F4 devices except STM32F410xx
   *            @arg RCC_MCO2SOURCE_I2SCLK: I2SCLK clock selected as MCO2 source, available only for STM32F410Rx devices
   *            @arg RCC_MCO2SOURCE_HSE: HSE clock selected as MCO2 source
@@ -1183,7 +1183,7 @@ typedef struct
   *            @arg RCC_IT_HSERDY: HSE ready interrupt.
   *            @arg RCC_IT_PLLRDY: Main PLL ready interrupt.
   *            @arg RCC_IT_PLLI2SRDY: PLLI2S ready interrupt.
-  *            @arg RCC_IT_CSS: Clock Security _System interrupt
+  *            @arg RCC_IT_CSS: Clock Security System interrupt
   */
 #define __HAL_RCC_CLEAR_IT(__INTERRUPT__) (*(__IO uint8_t *) RCC_CIR_BYTE2_ADDRESS = (__INTERRUPT__))
 
@@ -1196,7 +1196,7 @@ typedef struct
   *            @arg RCC_IT_HSERDY: HSE ready interrupt.
   *            @arg RCC_IT_PLLRDY: Main PLL ready interrupt.
   *            @arg RCC_IT_PLLI2SRDY: PLLI2S ready interrupt.
-  *            @arg RCC_IT_CSS: Clock Security _System interrupt
+  *            @arg RCC_IT_CSS: Clock Security System interrupt
   * @retval The new state of __INTERRUPT__ (TRUE or FALSE).
   */
 #define __HAL_RCC_GET_IT(__INTERRUPT__) ((RCC->CIR & (__INTERRUPT__)) == (__INTERRUPT__))

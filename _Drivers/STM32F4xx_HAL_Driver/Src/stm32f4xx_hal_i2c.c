@@ -20,12 +20,12 @@
         I2C_HandleTypeDef  hi2c;
 
     (#)Initialize the I2C low level resources by implementing the HAL_I2C_MspInit() API:
-        (##) Enable the I2Cx interface clock
+        (##) Enable the I2Cx6050 interface clock
         (##) I2C pins configuration
             (+++) Enable the clock for the I2C GPIOs
             (+++) Configure I2C pins as alternate function open-drain
         (##) NVIC configuration if you need to use interrupt process
-            (+++) Configure the I2Cx interrupt priority
+            (+++) Configure the I2Cx6050 interrupt priority
             (+++) Enable the NVIC I2C IRQ Channel
         (##) DMA Configuration if you need to use DMA process
             (+++) Declare a DMA_HandleTypeDef handle structure for the transmit or receive stream
@@ -402,7 +402,7 @@ static void I2C_ConvertOtherXferOptions(I2C_HandleTypeDef *hi2c);
               ##### Initialization and de-initialization functions #####
  ===============================================================================
     [..]  This subsection provides a set of functions allowing to initialize and
-          deinitialize the I2Cx peripheral:
+          deinitialize the I2Cx6050 peripheral:
 
       (+) User must Implement HAL_I2C_MspInit() function in which he configures
           all related peripherals resources (CLOCK, GPIO, DMA, IT and NVIC).
@@ -419,7 +419,7 @@ static void I2C_ConvertOtherXferOptions(I2C_HandleTypeDef *hi2c);
         (++) Nostretch mode
 
       (+) Call the function HAL_I2C_DeInit() to restore the default configuration
-          of the selected I2Cx peripheral.
+          of the selected I2Cx6050 peripheral.
 
 @endverbatim
   * @{
@@ -506,28 +506,28 @@ HAL_StatusTypeDef HAL_I2C_Init(I2C_HandleTypeDef *hi2c)
   /* Calculate frequency range */
   freqrange = I2C_FREQRANGE(pclk1);
 
-  /*---------------------------- I2Cx CR2 Configuration ----------------------*/
-  /* Configure I2Cx: Frequency range */
+  /*---------------------------- I2Cx6050 CR2 Configuration ----------------------*/
+  /* Configure I2Cx6050: Frequency range */
   MODIFY_REG(hi2c->Instance->CR2, I2C_CR2_FREQ, freqrange);
 
-  /*---------------------------- I2Cx TRISE Configuration --------------------*/
-  /* Configure I2Cx: Rise Time */
+  /*---------------------------- I2Cx6050 TRISE Configuration --------------------*/
+  /* Configure I2Cx6050: Rise Time */
   MODIFY_REG(hi2c->Instance->TRISE, I2C_TRISE_TRISE, I2C_RISE_TIME(freqrange, hi2c->Init.ClockSpeed));
 
-  /*---------------------------- I2Cx CCR Configuration ----------------------*/
-  /* Configure I2Cx: Speed */
+  /*---------------------------- I2Cx6050 CCR Configuration ----------------------*/
+  /* Configure I2Cx6050: Speed */
   MODIFY_REG(hi2c->Instance->CCR, (I2C_CCR_FS | I2C_CCR_DUTY | I2C_CCR_CCR), I2C_SPEED(pclk1, hi2c->Init.ClockSpeed, hi2c->Init.DutyCycle));
 
-  /*---------------------------- I2Cx CR1 Configuration ----------------------*/
-  /* Configure I2Cx: Generalcall and NoStretch mode */
+  /*---------------------------- I2Cx6050 CR1 Configuration ----------------------*/
+  /* Configure I2Cx6050: Generalcall and NoStretch mode */
   MODIFY_REG(hi2c->Instance->CR1, (I2C_CR1_ENGC | I2C_CR1_NOSTRETCH), (hi2c->Init.GeneralCallMode | hi2c->Init.NoStretchMode));
 
-  /*---------------------------- I2Cx OAR1 Configuration ---------------------*/
-  /* Configure I2Cx: Own Address1 and addressing mode */
+  /*---------------------------- I2Cx6050 OAR1 Configuration ---------------------*/
+  /* Configure I2Cx6050: Own Address1 and addressing mode */
   MODIFY_REG(hi2c->Instance->OAR1, (I2C_OAR1_ADDMODE | I2C_OAR1_ADD8_9 | I2C_OAR1_ADD1_7 | I2C_OAR1_ADD0), (hi2c->Init.AddressingMode | hi2c->Init.OwnAddress1));
 
-  /*---------------------------- I2Cx OAR2 Configuration ---------------------*/
-  /* Configure I2Cx: Dual mode and Own Address2 */
+  /*---------------------------- I2Cx6050 OAR2 Configuration ---------------------*/
+  /* Configure I2Cx6050: Dual mode and Own Address2 */
   MODIFY_REG(hi2c->Instance->OAR2, (I2C_OAR2_ENDUAL | I2C_OAR2_ADD2), (hi2c->Init.DualAddressMode | hi2c->Init.OwnAddress2));
 
   /* Enable the selected I2C peripheral */
@@ -7481,7 +7481,7 @@ static HAL_StatusTypeDef I2C_IsAcknowledgeFailed(I2C_HandleTypeDef *hi2c)
 }
 
 /**
-  * @brief  Convert I2Cx OTHER_xxx XferOptions to functional XferOptions.
+  * @brief  Convert I2Cx6050 OTHER_xxx XferOptions to functional XferOptions.
   * @param  hi2c I2C handle.
   * @retval None
   */

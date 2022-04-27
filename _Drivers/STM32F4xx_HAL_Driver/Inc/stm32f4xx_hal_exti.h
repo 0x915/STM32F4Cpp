@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_exti.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   Header file of EXTI HAL module.
   ******************************************************************************
   * @attention
@@ -48,7 +48,7 @@ typedef enum
 } EXTI_CallbackIDTypeDef;
 
 /**
-  * @brief  EXTI UART1Handle structure definition
+  * @brief  EXTI Handle structure definition
   */
 typedef struct
 {

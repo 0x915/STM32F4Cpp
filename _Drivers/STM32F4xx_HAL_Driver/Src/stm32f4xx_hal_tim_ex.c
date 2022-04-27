@@ -1976,10 +1976,10 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
   /* Change the handler state */
   htim->State = HAL_TIM_STATE_BUSY;
 
-  /* Get the TIMx CR2 register value */
+  /* Get the TIMx6050 CR2 register value */
   tmpcr2 = htim->Instance->CR2;
 
-  /* Get the TIMx SMCR register value */
+  /* Get the TIMx6050 SMCR register value */
   tmpsmcr = htim->Instance->SMCR;
 
   /* Reset the MMS Bits */
@@ -1987,7 +1987,7 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
   /* Select the TRGO source */
   tmpcr2 |=  sMasterConfig->MasterOutputTrigger;
 
-  /* Update TIMx CR2 */
+  /* Update TIMx6050 CR2 */
   htim->Instance->CR2 = tmpcr2;
 
   if (IS_TIM_SLAVE_INSTANCE(htim->Instance))
@@ -1997,7 +1997,7 @@ HAL_StatusTypeDef HAL_TIMEx_MasterConfigSynchronization(TIM_HandleTypeDef *htim,
     /* Set master mode */
     tmpsmcr |= sMasterConfig->MasterSlaveMode;
 
-    /* Update TIMx SMCR */
+    /* Update TIMx6050 SMCR */
     htim->Instance->SMCR = tmpsmcr;
   }
 
@@ -2061,7 +2061,7 @@ HAL_StatusTypeDef HAL_TIMEx_ConfigBreakDeadTime(TIM_HandleTypeDef *htim,
 }
 
 /**
-  * @brief  Configures the TIMx Remapping input capabilities.
+  * @brief  Configures the TIMx6050 Remapping input capabilities.
   * @param  htim TIM handle.
   * @param  Remap specifies the TIM remapping source.
   *         For TIM1, the parameter can have the following values:                   (**)
@@ -2106,7 +2106,7 @@ HAL_StatusTypeDef HAL_TIMEx_RemapConfig(TIM_HandleTypeDef *htim, uint32_t Remap)
 #if defined(LPTIM_OR_TIM1_ITR2_RMP) && defined(LPTIM_OR_TIM5_ITR1_RMP) && defined(LPTIM_OR_TIM9_ITR1_RMP)
   if ((Remap & LPTIM_REMAP_MASK) == LPTIM_REMAP_MASK)
   {
-    /* Connect TIMx internal trigger to LPTIM1 output */
+    /* Connect TIMx6050 internal trigger to LPTIM1 output */
     __HAL_RCC_LPTIM1_CLK_ENABLE();
     MODIFY_REG(LPTIM1->OR,
                (LPTIM_OR_TIM1_ITR2_RMP | LPTIM_OR_TIM5_ITR1_RMP | LPTIM_OR_TIM9_ITR1_RMP),

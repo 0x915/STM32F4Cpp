@@ -25,7 +25,7 @@ class MLX90614{
 	
 	uint16_t I2C_Read(uint8_t mem,uint8_t size=2){
 		CheckBusSpeed();
-		if(HAL_I2C_Mem_Read(I2Cx,addr,mem,1,buffer,size,35) == HAL_OK)
+		if(HAL_I2C_Mem_Read(I2Cx,addr,mem,I2C_MEMADD_SIZE_8BIT,buffer,size,35) == HAL_OK)
 			return buffer[1] << 8 | buffer[0] << 0;
 		else return 0xffff;
 	}

@@ -46,7 +46,16 @@ else ()
     add_compile_options(-Og -g)
 endif ()
 
-include_directories(_Application _Drivers/STM32F4xx_HAL_Driver/Inc _Drivers/STM32F4xx_HAL_Driver/Inc/Legacy _Drivers/CMSIS/Device/ST/STM32F4xx/Include _Drivers/CMSIS/Include _System)
+include_directories(
+        _Application
+        _Drivers/STM32F4xx_HAL_Driver/Inc
+        _Drivers/STM32F4xx_HAL_Driver/Inc/Legacy
+        _Drivers/CMSIS/Device/ST/STM32F4xx/Include
+        _Drivers/CMSIS/Include
+        _System
+        _Application/MPU6050/include
+        _Application/MPU6050
+        )
 
 add_definitions(-DUSE_HAL_DRIVER -DSTM32F411xE)
 

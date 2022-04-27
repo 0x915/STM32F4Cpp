@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_gpio_ex.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   Header file of GPIO HAL Extension module.
   ******************************************************************************
   * @attention

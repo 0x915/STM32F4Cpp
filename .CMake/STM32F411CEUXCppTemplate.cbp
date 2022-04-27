@@ -32,6 +32,8 @@
 					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
 					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_Drivers/CMSIS/Include"/>
 					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_System"/>
+					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_Application/MPU6050/include"/>
+					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_Application/MPU6050"/>
 					<Add directory="c:\arm\gcc-arm-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
 					<Add directory="c:\arm\gcc-arm-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
 					<Add directory="c:\arm\gcc-arm-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
@@ -61,6 +63,8 @@
 					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_Drivers/CMSIS/Device/ST/STM32F4xx/Include"/>
 					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_Drivers/CMSIS/Include"/>
 					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_System"/>
+					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_Application/MPU6050/include"/>
+					<Add directory="G:/Code/STM32Cpp/F411_Cpp/_Application/MPU6050"/>
 					<Add directory="c:\arm\gcc-arm-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1"/>
 					<Add directory="c:\arm\gcc-arm-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/arm-none-eabi"/>
 					<Add directory="c:\arm\gcc-arm-10.3-2021.10\bin\../lib/gcc/arm-none-eabi/10.3.1/../../../../arm-none-eabi/include/c++/10.3.1/backward"/>
@@ -115,6 +119,9 @@
 			<Option target="STM32F411CEUXCppTemplate.elf"/>
 		</Unit>
 		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Application/main.h">
+			<Option target="STM32F411CEUXCppTemplate.elf"/>
+		</Unit>
+		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Application/main.hal.cpp">
 			<Option target="STM32F411CEUXCppTemplate.elf"/>
 		</Unit>
 		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Application/ssd1306.h">
@@ -253,6 +260,15 @@
 			<Option target="STM32F411CEUXCppTemplate.elf"/>
 		</Unit>
 		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rcc_ex.h">
+			<Option target="STM32F411CEUXCppTemplate.elf"/>
+		</Unit>
+		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc.h">
+			<Option target="STM32F411CEUXCppTemplate.elf"/>
+		</Unit>
+		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_rtc_ex.h">
+			<Option target="STM32F411CEUXCppTemplate.elf"/>
+		</Unit>
+		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_spi.h">
 			<Option target="STM32F411CEUXCppTemplate.elf"/>
 		</Unit>
 		<Unit filename="G:/Code/STM32Cpp/F411_Cpp/_Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_tim.h">

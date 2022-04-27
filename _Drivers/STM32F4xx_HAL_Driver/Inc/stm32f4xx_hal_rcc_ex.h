@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_rcc_ex.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   Header file of RCC HAL Extension module.
   ******************************************************************************
   * @attention
@@ -6286,14 +6286,14 @@ typedef struct
   * @param  __SOURCE__ specifies the SDIO clock source.
   *         This parameter can be one of the following values:
   *            @arg RCC_SDIOCLKSOURCE_CLK48: CLK48 output used as SDIO clock. 
-  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: _System clock output used as SDIO clock.
+  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: System clock output used as SDIO clock. 
   */
 #define __HAL_RCC_SDIO_CONFIG(__SOURCE__) (MODIFY_REG(RCC->DCKCFGR2, RCC_DCKCFGR2_SDIOSEL, (uint32_t)(__SOURCE__)))
 
 /** @brief  Macro to Get the SDIO clock.
   * @retval The clock source can be one of the following values:
   *            @arg RCC_SDIOCLKSOURCE_CLK48: CLK48 output used as SDIO clock. 
-  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: _System clock output used as SDIO clock.
+  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: System clock output used as SDIO clock. 
   */
 #define __HAL_RCC_GET_SDIO_SOURCE() (READ_BIT(RCC->DCKCFGR2, RCC_DCKCFGR2_SDIOSEL))
 
@@ -6334,14 +6334,14 @@ typedef struct
   * @param  __SOURCE__ specifies the SDIO clock source.
   *         This parameter can be one of the following values:
   *            @arg RCC_SDIOCLKSOURCE_CLK48: CLK48 output used as SDIO clock. 
-  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: _System clock output used as SDIO clock.
+  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: System clock output used as SDIO clock. 
   */
 #define __HAL_RCC_SDIO_CONFIG(__SOURCE__) (MODIFY_REG(RCC->DCKCFGR, RCC_DCKCFGR_SDIOSEL, (uint32_t)(__SOURCE__)))
 
 /** @brief  Macro to Get the SDIO clock.
   * @retval The clock source can be one of the following values:
   *            @arg RCC_SDIOCLKSOURCE_CLK48: CLK48 output used as SDIO clock. 
-  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: _System clock output used as SDIO clock.
+  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: System clock output used as SDIO clock. 
   */
 #define __HAL_RCC_GET_SDIO_SOURCE() (READ_BIT(RCC->DCKCFGR, RCC_DCKCFGR_SDIOSEL))  
       
@@ -6368,7 +6368,7 @@ typedef struct
   * @param  __DFSDM1_CLKSOURCE__ specifies the DFSDM1 clock source.
   *         This parameter can be one of the following values:
   *            @arg RCC_DFSDM1CLKSOURCE_PCLK2: PCLK2 clock used as kernel clock. 
-  *            @arg RCC_DFSDM1CLKSOURCE_SYSCLK: _System clock used as kernel clock.
+  *            @arg RCC_DFSDM1CLKSOURCE_SYSCLK: System clock used as kernel clock.
   * @retval None
   */
 #define __HAL_RCC_DFSDM1_CONFIG(__DFSDM1_CLKSOURCE__)  MODIFY_REG(RCC->DCKCFGR, RCC_DCKCFGR_CKDFSDM1SEL, (__DFSDM1_CLKSOURCE__))
@@ -6376,7 +6376,7 @@ typedef struct
 /** @brief  Macro to get the DFSDM1 clock source.
   * @retval The clock source can be one of the following values:
   *            @arg RCC_DFSDM1CLKSOURCE_PCLK2: PCLK2 clock used as kernel clock. 
-  *            @arg RCC_DFSDM1CLKSOURCE_SYSCLK: _System clock used as kernel clock.
+  *            @arg RCC_DFSDM1CLKSOURCE_SYSCLK: System clock used as kernel clock.
   */
 #define __HAL_RCC_GET_DFSDM1_SOURCE() ((uint32_t)(READ_BIT(RCC->DCKCFGR, RCC_DCKCFGR_CKDFSDM1SEL)))
 
@@ -6404,7 +6404,7 @@ typedef struct
   * @param  __DFSDM2_CLKSOURCE__ specifies the DFSDM1 clock source.
   *         This parameter can be one of the following values:
   *            @arg RCC_DFSDM2CLKSOURCE_PCLK2: PCLK2 clock used as kernel clock. 
-  *            @arg RCC_DFSDM2CLKSOURCE_SYSCLK: _System clock used as kernel clock.
+  *            @arg RCC_DFSDM2CLKSOURCE_SYSCLK: System clock used as kernel clock.
   * @retval None
   */
 #define __HAL_RCC_DFSDM2_CONFIG(__DFSDM2_CLKSOURCE__)  MODIFY_REG(RCC->DCKCFGR, RCC_DCKCFGR_CKDFSDM1SEL, (__DFSDM2_CLKSOURCE__))
@@ -6412,7 +6412,7 @@ typedef struct
 /** @brief  Macro to get the DFSDM2 clock source.
   * @retval The clock source can be one of the following values:
   *            @arg RCC_DFSDM2CLKSOURCE_PCLK2: PCLK2 clock used as kernel clock. 
-  *            @arg RCC_DFSDM2CLKSOURCE_SYSCLK: _System clock used as kernel clock.
+  *            @arg RCC_DFSDM2CLKSOURCE_SYSCLK: System clock used as kernel clock.
   */
 #define __HAL_RCC_GET_DFSDM2_SOURCE() ((uint32_t)(READ_BIT(RCC->DCKCFGR, RCC_DCKCFGR_CKDFSDM1SEL)))
 
@@ -6583,14 +6583,14 @@ typedef struct
   * @param  __SOURCE__ specifies the SDIO clock source.
   *         This parameter can be one of the following values:
   *            @arg RCC_SDIOCLKSOURCE_CLK48: CLK48 output used as SDIO clock. 
-  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: _System clock output used as SDIO clock.
+  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: System clock output used as SDIO clock. 
   */
 #define __HAL_RCC_SDIO_CONFIG(__SOURCE__) (MODIFY_REG(RCC->DCKCFGR2, RCC_DCKCFGR2_SDIOSEL, (uint32_t)(__SOURCE__)))
 
 /** @brief  Macro to Get the SDIO clock.
   * @retval The clock source can be one of the following values:
   *            @arg RCC_SDIOCLKSOURCE_CLK48: CLK48 output used as SDIO clock. 
-  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: _System clock output used as SDIO clock.
+  *            @arg RCC_SDIOCLKSOURCE_SYSCLK: System clock output used as SDIO clock. 
   */
 #define __HAL_RCC_GET_SDIO_SOURCE() (READ_BIT(RCC->DCKCFGR2, RCC_DCKCFGR2_SDIOSEL))
 

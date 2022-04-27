@@ -82,7 +82,7 @@
 /**
   * @brief  Configures I2C Analog noise filter.
   * @param  hi2c pointer to a I2C_HandleTypeDef structure that contains
-  *                the configuration information for the specified I2Cx peripheral.
+  *                the configuration information for the specified I2Cx6050 peripheral.
   * @param  AnalogFilter new state of the Analog filter.
   * @retval HAL status
   */
@@ -99,7 +99,7 @@ HAL_StatusTypeDef HAL_I2CEx_ConfigAnalogFilter(I2C_HandleTypeDef *hi2c, uint32_t
     /* Disable the selected I2C peripheral */
     __HAL_I2C_DISABLE(hi2c);
 
-    /* Reset I2Cx ANOFF bit */
+    /* Reset I2Cx6050 ANOFF bit */
     hi2c->Instance->FLTR &= ~(I2C_FLTR_ANOFF);
 
     /* Disable the analog filter */
@@ -120,7 +120,7 @@ HAL_StatusTypeDef HAL_I2CEx_ConfigAnalogFilter(I2C_HandleTypeDef *hi2c, uint32_t
 /**
   * @brief  Configures I2C Digital noise filter.
   * @param  hi2c pointer to a I2C_HandleTypeDef structure that contains
-  *                the configuration information for the specified I2Cx peripheral.
+  *                the configuration information for the specified I2Cx6050 peripheral.
   * @param  DigitalFilter Coefficient of digital noise filter between 0x00 and 0x0F.
   * @retval HAL status
   */
@@ -142,10 +142,10 @@ HAL_StatusTypeDef HAL_I2CEx_ConfigDigitalFilter(I2C_HandleTypeDef *hi2c, uint32_
     /* Get the old register value */
     tmpreg = hi2c->Instance->FLTR;
 
-    /* Reset I2Cx DNF bit [3:0] */
+    /* Reset I2Cx6050 DNF bit [3:0] */
     tmpreg &= ~(I2C_FLTR_DNF);
 
-    /* Set I2Cx DNF coefficient */
+    /* Set I2Cx6050 DNF coefficient */
     tmpreg |= DigitalFilter;
 
     /* Store the new register value */

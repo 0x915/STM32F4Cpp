@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   This file contains all the functions prototypes for the HAL 
   *          module driver.
   ******************************************************************************
@@ -119,7 +119,7 @@ typedef enum
   */
 #define __HAL_SYSCFG_REMAPMEMORY_FLASH()             (SYSCFG->MEMRMP &= ~(SYSCFG_MEMRMP_MEM_MODE))
 
-/** @brief  _System Flash memory mapped at 0x00000000
+/** @brief  System Flash memory mapped at 0x00000000
   */
 #define __HAL_SYSCFG_REMAPMEMORY_SYSTEMFLASH()       do {SYSCFG->MEMRMP &= ~(SYSCFG_MEMRMP_MEM_MODE);\
                                                          SYSCFG->MEMRMP |= SYSCFG_MEMRMP_MEM_MODE_0;\

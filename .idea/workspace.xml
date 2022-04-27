@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true">
     <generated>
       <config projectName="STM32F411CEUXCppTemplate" targetName="CLion.elf" />
@@ -9,7 +12,7 @@
   </component>
   <component name="CMakeSettings">
     <configurations>
-      <configuration PROFILE_NAME="Debug" CONFIG_NAME="Debug" GENERATION_DIR=".CMake" ENABLED="true" />
+      <configuration PROFILE_NAME="Debug" ENABLED="true" GENERATION_DIR=".CMake" CONFIG_NAME="Debug" />
     </configurations>
   </component>
   <component name="ChangeListManager">
@@ -26,8 +29,8 @@
     <option name="columnWidths">
       <list>
         <option value="444" />
-        <option value="102" />
-        <option value="806" />
+        <option value="82" />
+        <option value="770" />
       </list>
     </option>
     <option name="columnOrder">
@@ -55,6 +58,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="21xSov2iMyVSXOXw79NaefAno5N" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -77,7 +83,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="serialMonitor.commands" value="" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -88,19 +94,14 @@
     </key>
   </component>
   <component name="RunManager" selected="OpenOCD 下载并运行.Run">
-    <configuration name="STM32F411CEUXCppTemplate.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="STM32F411CEUXCppTemplate" TARGET_NAME="STM32F411CEUXCppTemplate.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="STM32F411CEUXCppTemplate" RUN_TARGET_NAME="STM32F411CEUXCppTemplate.elf">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
-      <method v="2">
-        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
-      </method>
-    </configuration>
     <configuration default="true" type="GradleAppRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="com.jetbrains.cidr.cpp.gradle.execution.GradleNativeBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="STM32F411CEUXCppTemplate.elf" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="STM32F411CEUXCppTemplate" TARGET_NAME="STM32F411CEUXCppTemplate.elf" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="STM32F411CEUXCppTemplate" RUN_TARGET_NAME="STM32F411CEUXCppTemplate.elf">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
     <configuration name="Run" type="com.jetbrains.cidr.embedded.openocd.conf.type" factoryName="com.jetbrains.cidr.embedded.openocd.conf.factory" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="STM32F411CEUXCppTemplate" TARGET_NAME="STM32F411CEUXCppTemplate.elf" CONFIG_NAME="Debug" version="1" RUN_TARGET_PROJECT_NAME="STM32F411CEUXCppTemplate" RUN_TARGET_NAME="STM32F411CEUXCppTemplate.elf">
@@ -165,7 +166,29 @@
       <workItem from="1639470649035" duration="7092000" />
       <workItem from="1639481457210" duration="5800000" />
       <workItem from="1639489734626" duration="5399000" />
-      <workItem from="1639549236691" duration="2690000" />
+      <workItem from="1639549236691" duration="8410000" />
+      <workItem from="1639567801060" duration="8049000" />
+      <workItem from="1639644765560" duration="1911000" />
+      <workItem from="1639654468533" duration="1520000" />
+      <workItem from="1639659743240" duration="3733000" />
+      <workItem from="1639723292789" duration="4119000" />
+      <workItem from="1639741219028" duration="3723000" />
+      <workItem from="1640334165999" duration="64000" />
+      <workItem from="1640431620571" duration="126000" />
+      <workItem from="1644931763590" duration="234000" />
+      <workItem from="1645192687501" duration="106000" />
+      <workItem from="1647338495803" duration="217000" />
+      <workItem from="1649584323099" duration="30000" />
+      <workItem from="1649584374224" duration="15000" />
+      <workItem from="1649584423191" duration="13000" />
+      <workItem from="1649937219041" duration="67000" />
+      <workItem from="1649937336471" duration="94000" />
+      <workItem from="1649941190294" duration="172000" />
+      <workItem from="1649941381036" duration="53000" />
+      <workItem from="1649941797080" duration="10000" />
+      <workItem from="1649944282407" duration="46000" />
+      <workItem from="1649947528491" duration="46000" />
+      <workItem from="1649947892617" duration="20000" />
     </task>
     <servers />
   </component>
@@ -182,7 +205,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_uart.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   Header file of UART HAL module.
   ******************************************************************************
   * @attention
@@ -78,7 +78,7 @@ typedef struct
 /**
   * @brief HAL UART State structures definition
   * @note  HAL UART State value is a combination of 2 different substates: gState and RxState.
-  *        - gState contains UART state information related to global UART1Handle management
+  *        - gState contains UART state information related to global Handle management
   *          and also information related to Tx operations.
   *          gState value coding follow below described bitmap :
   *          b7-b6  Error information
@@ -167,13 +167,13 @@ typedef struct __UART_HandleTypeDef
 
   __IO HAL_UART_RxTypeTypeDef ReceptionType;      /*!< Type of ongoing reception          */
 
-  DMA_HandleTypeDef             *hdmatx;          /*!< UART Tx DMA UART1Handle parameters      */
+  DMA_HandleTypeDef             *hdmatx;          /*!< UART Tx DMA Handle parameters      */
 
-  DMA_HandleTypeDef             *hdmarx;          /*!< UART Rx DMA UART1Handle parameters      */
+  DMA_HandleTypeDef             *hdmarx;          /*!< UART Rx DMA Handle parameters      */
 
   HAL_LockTypeDef               Lock;             /*!< Locking object                     */
 
-  __IO HAL_UART_StateTypeDef    gState;           /*!< UART state information related to global UART1Handle management
+  __IO HAL_UART_StateTypeDef    gState;           /*!< UART state information related to global Handle management
                                                        and also related to Tx operations.
                                                        This parameter can be a value of @ref HAL_UART_StateTypeDef */
 
@@ -401,8 +401,8 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
   */
 
 /** @brief Reset UART handle gstate & RxState
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @retval None
   */
@@ -421,15 +421,15 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
 #endif /*USE_HAL_UART_REGISTER_CALLBACKS */
 
 /** @brief  Flushes the UART DR register
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   */
 #define __HAL_UART_FLUSH_DRREGISTER(__HANDLE__) ((__HANDLE__)->Instance->DR)
 
 /** @brief  Checks whether the specified UART flag is set or not.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @param  __FLAG__ specifies the flag to check.
   *        This parameter can be one of the following values:
@@ -448,8 +448,8 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
 #define __HAL_UART_GET_FLAG(__HANDLE__, __FLAG__) (((__HANDLE__)->Instance->SR & (__FLAG__)) == (__FLAG__))
 
 /** @brief  Clears the specified UART pending flag.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @param  __FLAG__ specifies the flag to check.
   *          This parameter can be any combination of the following values:
@@ -472,8 +472,8 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
 #define __HAL_UART_CLEAR_FLAG(__HANDLE__, __FLAG__) ((__HANDLE__)->Instance->SR = ~(__FLAG__))
 
 /** @brief  Clears the UART PE pending flag.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @retval None
   */
@@ -486,40 +486,40 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
   } while(0U)
 
 /** @brief  Clears the UART FE pending flag.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @retval None
   */
 #define __HAL_UART_CLEAR_FEFLAG(__HANDLE__) __HAL_UART_CLEAR_PEFLAG(__HANDLE__)
 
 /** @brief  Clears the UART NE pending flag.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @retval None
   */
 #define __HAL_UART_CLEAR_NEFLAG(__HANDLE__) __HAL_UART_CLEAR_PEFLAG(__HANDLE__)
 
 /** @brief  Clears the UART ORE pending flag.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @retval None
   */
 #define __HAL_UART_CLEAR_OREFLAG(__HANDLE__) __HAL_UART_CLEAR_PEFLAG(__HANDLE__)
 
 /** @brief  Clears the UART IDLE pending flag.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @retval None
   */
 #define __HAL_UART_CLEAR_IDLEFLAG(__HANDLE__) __HAL_UART_CLEAR_PEFLAG(__HANDLE__)
 
 /** @brief  Enable the specified UART interrupt.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @param  __INTERRUPT__ specifies the UART interrupt source to enable.
   *          This parameter can be one of the following values:
@@ -538,8 +538,8 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
                                                            ((__HANDLE__)->Instance->CR3 |= ((__INTERRUPT__) & UART_IT_MASK)))
 
 /** @brief  Disable the specified UART interrupt.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @param  __INTERRUPT__ specifies the UART interrupt source to disable.
   *          This parameter can be one of the following values:
@@ -558,8 +558,8 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
                                                            ((__HANDLE__)->Instance->CR3 &= ~ ((__INTERRUPT__) & UART_IT_MASK)))
 
 /** @brief  Checks whether the specified UART interrupt source is enabled or not.
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         UART UART1Handle selects the USARTx or UARTy peripheral
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         UART Handle selects the USARTx or UARTy peripheral
   *         (USART,UART availability and x,y values depending on device).
   * @param  __IT__ specifies the UART interrupt source to check.
   *          This parameter can be one of the following values:
@@ -584,8 +584,8 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
   *           - UART instance should have already been initialised (through call of HAL_UART_Init() )
   *           - macro could only be called when corresponding UART instance is disabled (i.e __HAL_UART_DISABLE(__HANDLE__))
   *             and should be followed by an Enable macro (i.e __HAL_UART_ENABLE(__HANDLE__)).
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         The UART1Handle Instance can be any USARTx (supporting the HW Flow control feature).
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         The Handle Instance can be any USARTx (supporting the HW Flow control feature).
   *         It is used to select the USART peripheral (USART availability and x value depending on device).
   * @retval None
   */
@@ -604,8 +604,8 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
   *           - UART instance should have already been initialised (through call of HAL_UART_Init() )
   *           - macro could only be called when corresponding UART instance is disabled (i.e __HAL_UART_DISABLE(__HANDLE__))
   *             and should be followed by an Enable macro (i.e __HAL_UART_ENABLE(__HANDLE__)).
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         The UART1Handle Instance can be any USARTx (supporting the HW Flow control feature).
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         The Handle Instance can be any USARTx (supporting the HW Flow control feature).
   *         It is used to select the USART peripheral (USART availability and x value depending on device).
   * @retval None
   */
@@ -624,8 +624,8 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
   *           - UART instance should have already been initialised (through call of HAL_UART_Init() )
   *           - macro could only be called when corresponding UART instance is disabled (i.e __HAL_UART_DISABLE(__HANDLE__))
   *             and should be followed by an Enable macro (i.e __HAL_UART_ENABLE(__HANDLE__)).
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         The UART1Handle Instance can be any USARTx (supporting the HW Flow control feature).
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         The Handle Instance can be any USARTx (supporting the HW Flow control feature).
   *         It is used to select the USART peripheral (USART availability and x value depending on device).
   * @retval None
   */
@@ -644,8 +644,8 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
   *           - UART instance should have already been initialised (through call of HAL_UART_Init() )
   *           - macro could only be called when corresponding UART instance is disabled (i.e __HAL_UART_DISABLE(__HANDLE__))
   *             and should be followed by an Enable macro (i.e __HAL_UART_ENABLE(__HANDLE__)).
-  * @param  __HANDLE__ specifies the UART UART1Handle.
-  *         The UART1Handle Instance can be any USARTx (supporting the HW Flow control feature).
+  * @param  __HANDLE__ specifies the UART Handle.
+  *         The Handle Instance can be any USARTx (supporting the HW Flow control feature).
   *         It is used to select the USART peripheral (USART availability and x value depending on device).
   * @retval None
   */
@@ -656,26 +656,26 @@ typedef  void (*pUART_RxEventCallbackTypeDef)(struct __UART_HandleTypeDef *huart
   } while(0U)
 
 /** @brief  Macro to enable the UART's one bit sample method
-  * @param  __HANDLE__ specifies the UART UART1Handle.
+  * @param  __HANDLE__ specifies the UART Handle.
   * @retval None
   */
 #define __HAL_UART_ONE_BIT_SAMPLE_ENABLE(__HANDLE__) ((__HANDLE__)->Instance->CR3|= USART_CR3_ONEBIT)
 
 /** @brief  Macro to disable the UART's one bit sample method
-  * @param  __HANDLE__ specifies the UART UART1Handle.
+  * @param  __HANDLE__ specifies the UART Handle.
   * @retval None
   */
 #define __HAL_UART_ONE_BIT_SAMPLE_DISABLE(__HANDLE__) ((__HANDLE__)->Instance->CR3\
                                                        &= (uint16_t)~((uint16_t)USART_CR3_ONEBIT))
 
 /** @brief  Enable UART
-  * @param  __HANDLE__ specifies the UART UART1Handle.
+  * @param  __HANDLE__ specifies the UART Handle.
   * @retval None
   */
 #define __HAL_UART_ENABLE(__HANDLE__)               ((__HANDLE__)->Instance->CR1 |=  USART_CR1_UE)
 
 /** @brief  Disable UART
-  * @param  __HANDLE__ specifies the UART UART1Handle.
+  * @param  __HANDLE__ specifies the UART Handle.
   * @retval None
   */
 #define __HAL_UART_DISABLE(__HANDLE__)              ((__HANDLE__)->Instance->CR1 &=  ~USART_CR1_UE)

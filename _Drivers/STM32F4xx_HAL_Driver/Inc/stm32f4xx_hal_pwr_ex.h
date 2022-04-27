@@ -1,7 +1,7 @@
 /**
   ******************************************************************************
   * @file    stm32f4xx_hal_pwr_ex.h
-  * @author  MCD _Application Team
+  * @author  MCD Application Team
   * @brief   Header file of PWR HAL Extension module.
   ******************************************************************************
   * @attention
@@ -165,7 +165,7 @@
   * @note  If the Under-drive mode was enabled, it is automatically disabled after 
   *        exiting Stop mode. 
   *        When the voltage regulator operates in Under-drive mode, an additional  
-  *        _Application delay is induced when waking up from Stop mode.
+  *        startup delay is induced when waking up from Stop mode.
   */
 #define __HAL_PWR_UNDERDRIVE_ENABLE() (PWR->CR |= (uint32_t)PWR_CR_UDEN)
 #define __HAL_PWR_UNDERDRIVE_DISABLE() (PWR->CR &= (uint32_t)(~PWR_CR_UDEN))

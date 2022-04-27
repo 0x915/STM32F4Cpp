@@ -29,8 +29,8 @@ class HI2C{
 		if(HAL_I2C_Init(I2Cx) != HAL_OK) Error_Handler();
 	}
 	
-	void Write(uint16_t slave,uint16_t reg,uint8_t data){
-		HAL_I2C_Mem_Write(I2Cx,slave,reg,_MemSize,&data,1,10);
+	void Write(uint16_t slave,uint16_t reg,uint8_t *data){
+		HAL_I2C_Mem_Write(I2Cx,slave,reg,_MemSize,data,1,10);
 	}
 	
 	uint16_t Read(uint16_t slave,uint16_t mem,uint8_t size = 2){
@@ -45,6 +45,24 @@ class HI2C{
 	}
 	
 	void GetI2CDevice(){}
+};
+
+class HSPI{
+  private:
+	SPI_HandleTypeDef *SPIx;
+	uint8_t Buffer;
+  public:
+	HSPI(SPI_HandleTypeDef *SPIxx) : SPIx(SPIxx){}
+	
+	void Transmit(uint8_t *data,uint16_t size=1){
+		HAL_SPI_Transmit(SPIx,data,size,35);
+	}
+	
+	uint8_t Receive(uint8_t data){
+		if(HAL_SPI_TransmitReceive(SPIx,&data,&Buffer,1,35) == HAL_OK)
+			return Buffer;
+		else return 0xff;
+	}
 };
 
 class Delay{
@@ -225,5 +243,214 @@ class GPIO{
 	}
 };
 
+typedef enum{
+	FS8KHz = 0,
+	FS4KHz = 1,
+	FS2KHz = 3,
+	FS1KHz = 7,
+	FS500Hz = 15,
+	FS250Hz = 31,
+	FS125Hz = 63,
+	FS100Hz = 79,
+}MPU6050FS;
+typedef enum{
+	A2G,A4G,A8G,A16G,
+}MPU6050ARange;
+typedef enum{
+	G250DPS,G500DPS,G1000DPS,G2000DPS,
+}MPU6050GRange;
 
+class MPU6050{
+	#define I2CBusCLK6050 400000
+  private:
+	I2C_HandleTypeDef *I2Cx;
+	uint8_t addr;
+	uint8_t buffer[2] = {0};
+  public:
+	int16_t AccelX = 0,AccelY = 0,AccelZ = 0;
+	int16_t GyrosX = 0,GyrosY = 0,GyrosZ = 0;
+	float Temperature = 0.0;
+	
+	MPU6050(I2C_HandleTypeDef *i2cxx,uint8_t addr = 0xD0) : I2Cx(i2cxx),addr(addr){
+		Init();
+	}
+	
+	void Init(){
+		I2C_Write(0x6B,0x80);       // 复位
+		I2C_Write(0x6B,0x00);       // 唤醒
+		I2C_Write(0X19,FS100Hz);     // 采样率
+		I2C_Write(0x1C,A2G);       // 加速度量程
+		I2C_Write(0x1B,G2000DPS);   // 陀螺仪量程
+		I2C_Write(0X23,0x00);       // FIFO
+		I2C_Write(0X38,0x00);       // Interrupt
+		I2C_Write(0x6C,0x00);       // 使能
+	}
+	
+	void CheckBusSpeed(){
+		if(I2Cx->Init.ClockSpeed != I2CBusCLK6050){
+			I2Cx->Init.ClockSpeed = I2CBusCLK6050;
+			if(HAL_I2C_Init(I2Cx) != HAL_OK) Error_Handler();
+		}
+	};
+	
+	void I2C_Write(uint8_t cmd,uint8_t data){
+		//CheckBusSpeed();
+		HAL_I2C_Mem_Write(I2Cx,addr,cmd,I2C_MEMADD_SIZE_8BIT,&data,1,1000);
+	}
+	
+	uint16_t I2C_Read(uint8_t mem,uint8_t size = 2){
+		//CheckBusSpeed();
+		if(HAL_I2C_Mem_Read(I2Cx,addr,mem,I2C_MEMADD_SIZE_8BIT,buffer,size,35) == HAL_OK){
+			return buffer[1] << 8 | buffer[0] << 0;
+		}else return 0xffff;
+	}
+	
+	void Update(){
+//		AccelX = I2C_Read(0x3B);
+//		AccelY = I2C_Read(0x3D);
+//		AccelZ = I2C_Read(0x3F);
+		Temperature = I2C_Read(0x41) / 340.0 + 36.53;
+		GyrosX += 1;//I2C_Read(0x43);
+		GyrosY += 1;//I2C_Read(0x45);
+		GyrosZ += 1;//I2C_Read(0x47);
+	}
+};
 
+class ST7735S{
+  private:
+	SPI_HandleTypeDef *SPIx;
+	GPIO *CS;
+	GPIO *DC;
+	GPIO *RE;
+	uint8_t Buffer[2] = {0xaa};
+  public:
+	ST7735S(SPI_HandleTypeDef *SPIxx,GPIO_Port PortCS,GPIO_Port PortDC,GPIO_Port PortRE) : SPIx(SPIxx){
+		CS = new GPIO(PortCS,OUT_PP,NO,SPEED);
+		DC = new GPIO(PortDC,OUT_PP,NO,SPEED);
+		RE = new GPIO(PortRE,OUT_PP,NO,SPEED);
+		Init();
+		//Init();
+	}
+	
+	void Init(){
+		RE->Write(1);
+		Command(0x11);
+		Command(0xB1);
+		Data(0x01);
+		Data(0x2C);
+		Data(0x2D);
+		Command(0xB2);
+		Data(0x01);
+		Data(0x2C);
+		Data(0x2D);
+		Command(0xB3);
+		Data(0x01);
+		Data(0x2C);
+		Data(0x2D);
+		Data(0x01);
+		Data(0x2C);
+		Data(0x2D);
+		Command(0xB4);  //Column inversion
+		Data(0x07);
+		Command(0xC0);  //ST7735R Power Sequence
+		Data(0xA2);
+		Data(0x02);
+		Data(0x84);
+		Command(0xC1);
+		Data(0xC5);
+		Command(0xC2);
+		Data(0x0A);
+		Data(0x00);
+		Command(0xC3);
+		Data(0x8A);
+		Data(0x2A);
+		Command(0xC4);
+		Data(0x8A);
+		Data(0xEE);
+		Command(0xC5);  //VCOM
+		Data(0x0E);
+		Command(0x36);  //MX, MY, RGB mode
+		Data(0xC8);
+		Command(0xe0);  //ST7735R Gamma Sequence
+		Data(0x0f);
+		Data(0x1a);
+		Data(0x0f);
+		Data(0x18);
+		Data(0x2f);
+		Data(0x28);
+		Data(0x20);
+		Data(0x22);
+		Data(0x1f);
+		Data(0x1b);
+		Data(0x23);
+		Data(0x37);
+		Data(0x00);
+		Data(0x07);
+		Data(0x02);
+		Data(0x10);
+		Command(0xe1);
+		Data(0x0f);
+		Data(0x1b);
+		Data(0x0f);
+		Data(0x17);
+		Data(0x33);
+		Data(0x2c);
+		Data(0x29);
+		Data(0x2e);
+		Data(0x30);
+		Data(0x30);
+		Data(0x39);
+		Data(0x3f);
+		Data(0x00);
+		Data(0x07);
+		Data(0x03);
+		Data(0x10);
+		Command(0x2a);
+		Data(0x00);
+		Data(0x00);
+		Data(0x00);
+		Data(0x7f);
+		Command(0x2b);
+		Data(0x00);
+		Data(0x00);
+		Data(0x00);
+		Data(0x9f);
+		Command(0xF0);  //Enable test command
+		Data(0x01);
+		Command(0xF6);  //Disable ram power save mode
+		Data(0x00);
+		Command(0x3A);  //65k mode
+		Data(0x05);
+		Command(0x29);  //Display on
+	}
+	
+	void Command(uint8_t cmd){
+		CS->Write(0);
+		DC->Write(0);
+		HAL_SPI_Transmit(SPIx,&cmd,1,35);
+		CS->Write(1);
+	}
+	
+	void Data(uint16_t data,uint8_t byte=2){
+		Buffer[0] = (data >> 8) & 0xff;
+		Buffer[1] = (data >> 0) & 0xff;
+		CS->Write(0);
+		DC->Write(1);
+		HAL_SPI_Transmit(SPIx,Buffer,byte,35);
+		CS->Write(1);
+	}
+	
+	void SelectRegion(uint16_t X0,uint16_t Y0,uint16_t X1,uint16_t Y1){
+		Command(0x2a);
+		Data(X0);
+		Data(Y0);
+		Command(0x2b);
+		Data(X1);
+		Data(Y1);
+		Command(0x2c);
+	}
+	
+	void DrawString(){
+	
+	}
+};
