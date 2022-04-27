@@ -1,3 +1,0 @@
-G:/Code/STM32Cpp/F411_Cpp/.CMake/CMakeFiles/STM32F411CEUXCppTemplate.elf.dir
-G:/Code/STM32Cpp/F411_Cpp/.CMake/CMakeFiles/edit_cache.dir
-G:/Code/STM32Cpp/F411_Cpp/.CMake/CMakeFiles/rebuild_cache.dir
